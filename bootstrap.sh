@@ -98,7 +98,9 @@ if [[ ! -d "$CLONEDIR" ]]; then
 fi
 
 # Now, for the Jekyll part
-jekyll serve --source "$CLONEDIR" --detach
+#jekyll serve --source "$CLONEDIR" --detach --watch --force_polling
+# The line above was removed since a another provisioner would start the jekyll server upon every start of the vm
+# (instead of only after a provision)
 
 end_seconds="$(date +%s)"
 echo "-----------------------------"

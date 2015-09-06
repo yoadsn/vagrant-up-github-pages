@@ -14,6 +14,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Throw in our provisioning script
   config.vm.provision "shell", path: "bootstrap.sh", privileged: false
+  config.vm.provision "shell", run: "always", inline: "jekyll serve --source /srv/www/yoadsn.github.io/ --watch --force_polling  --detach --trace", privileged: false
 
   # Map localhost:4000 to port 4000 inside the VM
   config.vm.network "forwarded_port", guest: 4000, host: 4000
